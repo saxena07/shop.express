@@ -13,12 +13,12 @@ import javax.persistence.Table;
 
 @Data
 @Entity
-@Table(name = "customers")
+@Table(name = "users")
 @Audited
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Customer {
+public class User {
     @Id
     @GeneratedValue()
     private Long id;

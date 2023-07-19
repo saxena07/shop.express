@@ -9,6 +9,8 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CustomerCreateRequest {
+public class UserCreateRequest {
+
+    private String email;
 
 }

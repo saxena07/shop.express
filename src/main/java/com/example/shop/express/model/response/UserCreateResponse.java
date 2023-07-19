@@ -5,5 +5,7 @@ import lombok.Data;
 
 @Data
 @Builder
-public class CustomerCreateResponse {
+public class UserCreateResponse {
+
+    private String email;
 }
