@@ -41,7 +41,6 @@ public class Product extends AbstractEntity {
     @JoinColumn(name = "category_id", nullable = false)
     private Category category;
 
-
     @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
     private List<SellerProduct> sellerProduct;
 
