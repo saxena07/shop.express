@@ -1,8 +1,8 @@
 package com.example.shop.express.util;
 
 import com.example.shop.express.entity.User;
-import com.example.shop.express.model.request.UserCreateRequest;
-import com.example.shop.express.model.response.UserCreateResponse;
+import com.example.shop.express.model.request.user.UserCreateRequest;
+import com.example.shop.express.model.response.user.UserCreateResponse;
 
 public class UserUtil {
     UserUtil()

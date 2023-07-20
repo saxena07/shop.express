@@ -47,7 +47,7 @@ public class User extends AbstractEntity {
 
     @Column
     private String password;
-    // stores md5 encypted key
+    // stores md5 encrypted key
 
     @JsonManagedReference
     @OneToOne
