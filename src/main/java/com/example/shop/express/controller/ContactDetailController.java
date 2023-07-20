@@ -20,18 +20,18 @@ import javax.validation.Valid;
 public class ContactDetailController {
 
     @Autowired
-    private IContactDetailService contactService;
+    private IContactDetailService contactDetailService;
 
     @PostMapping (value = "/create")
     public ContactDetailResponse createContact(@Valid @RequestBody final
                                               ContactDetailRequest contactDetailRequest) {
-        return contactService.createContactDetails(contactDetailRequest);
+        return contactDetailService.createContactDetails(contactDetailRequest);
     }
 
     @GetMapping(value = "/fetch/{id}")
     public ContactDetailResponse fetchContact(@RequestParam final Integer id)
     {
-        return contactService.fetchContactDetail(id);
+        return contactDetailService.fetchContactDetail(id);
     }
 
     @GetMapping(value = "/fetch")
@@ -45,7 +45,7 @@ public class ContactDetailController {
                                               @RequestParam(value = "zip_code",required = false) final String zip_code) {
         ContactDetailRequest contactDetailRequest=
                 ContactDetailRequest.builder().id(id).zipCode(zip_code).address(address).state(state).phoneNumber(phoneNumber).city(city).country(country).build();
-        return contactService.fetchContactDetail(contactDetailRequest);
+        return contactDetailService.fetchContactDetail(contactDetailRequest);
 
     }
 
@@ -54,7 +54,7 @@ public class ContactDetailController {
                                                 ContactDetailUpdateRequest contactDetailUpdateRequest)
     {
 
-        return contactService.updateContactDetails(contactDetailUpdateRequest);
+        return contactDetailService.updateContactDetails(contactDetailUpdateRequest);
     }
 
 
