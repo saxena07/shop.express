@@ -27,7 +27,7 @@ public class UserController {
     @Autowired
     private IUserService userService;
 
-    @PostMapping()
+    @PostMapping
     public UserCreateResponse create(
             @Valid @RequestBody final UserCreateRequest userCreateRequest) {
 //        userCreateRequest.setPassword("12345678");
@@ -47,7 +47,7 @@ public class UserController {
 //        return userService.getUserDetails(userDetailsRequest);
 //    }
 
-    @PutMapping()
+    @PutMapping
     public UserDetailResponse updateUser(@RequestBody final UserUpdateRequest userUpdateRequest )
     {
 //        return new ServiceResponse<>(new BaseMessageResponse<>(userService.updateDetails(userUpdateRequest)));
@@ -59,7 +59,7 @@ public class UserController {
 //
 
 
-    @GetMapping(value = "/fetch")
+    @GetMapping
     public UserDetailResponse fetchContact(@RequestParam(value ="id",required = false ) final Integer id,
                                               @RequestParam(value ="first_name",
                                                       required = false ) final String firstName,

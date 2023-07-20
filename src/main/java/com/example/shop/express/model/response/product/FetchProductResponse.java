@@ -1,15 +1,12 @@
-package com.example.shop.express.model.request.category;
+package com.example.shop.express.model.response.product;
 
-import com.example.shop.express.constant.Constant;
+import com.example.shop.express.entity.Category;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
 
 @Data
 //@JsonInclude(JsonInclude.Include.NON_NULL)
@@ -18,11 +15,14 @@ import javax.validation.constraints.NotEmpty;
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
-public class AddCategoryRequest {
+public class FetchProductResponse {
 
-    @NotBlank(message = Constant.PROVIDE_ALL_CATEGORY_DETAILS)
+    private Integer id;
+
     private String name;
 
     private String description;
+
+    private Category category;
 
 }

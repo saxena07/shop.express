@@ -15,7 +15,7 @@ public class ShipmentRepoService {
         return shipmentRepository.save(shipment);
     }
 
-    public Shipment fetchById(final Integer id) {
+    public Shipment fetchShipment(Integer id) {
         return shipmentRepository.getReferenceById(id);
     }
 }

@@ -6,6 +6,8 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface CategoryRepository extends JpaRepository<Category, Integer>,
         JpaSpecificationExecutor<Category> {
@@ -13,4 +15,6 @@ public interface CategoryRepository extends JpaRepository<Category, Integer>,
     @Query(value = "SELECT C.* from categories C where C.id=:id", nativeQuery = true)
     Category fetchCategory(Integer id);
 
+    @Query(value = "SELECT C.* from categories C", nativeQuery = true)
+    List<Category> fetchCategories();
 }

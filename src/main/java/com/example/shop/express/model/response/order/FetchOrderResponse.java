@@ -1,15 +1,14 @@
-package com.example.shop.express.model.request.category;
+package com.example.shop.express.model.response.order;
 
-import com.example.shop.express.constant.Constant;
+import com.example.shop.express.entity.Shipment;
+import com.example.shop.express.entity.User;
+import com.example.shop.express.enums.OrderStatus;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
 
 @Data
 //@JsonInclude(JsonInclude.Include.NON_NULL)
@@ -18,11 +17,16 @@ import javax.validation.constraints.NotEmpty;
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
-public class AddCategoryRequest {
+public class FetchOrderResponse {
 
-    @NotBlank(message = Constant.PROVIDE_ALL_CATEGORY_DETAILS)
-    private String name;
+    private Long orderedAt;
 
-    private String description;
+    private Double totalAmount;
+
+    private OrderStatus orderStatus;
+
+    private Shipment shipment;
+
+    private User user;
 
 }

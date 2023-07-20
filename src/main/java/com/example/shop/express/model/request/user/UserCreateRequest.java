@@ -33,7 +33,6 @@ public class UserCreateRequest {
 
     private UserType type;
 
-
     private String password;
 
 }

@@ -8,7 +8,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 @Data
@@ -18,22 +17,9 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
-public class AddProductRequest {
-
-    @NotEmpty(message = Constant.PROVIDE_ALL_PRODUCT_DETAILS)
-    private String name;
-
-    private String description;
+public class FetchProductRequest {
 
     @NotNull(message = Constant.PROVIDE_ALL_PRODUCT_DETAILS)
-    private Integer categoryId;
+    private Integer id;
 
-    @NotNull(message = Constant.PROVIDE_SELLER_ID)
-    private Integer userId;
-
-    @NotNull(message = Constant.PROVIDE_ALL_PRODUCT_DETAILS)
-    private Double price;
-
-    @NotNull(message = Constant.PROVIDE_ALL_PRODUCT_DETAILS)
-    private Integer quantity;
 }

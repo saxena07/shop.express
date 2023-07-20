@@ -8,6 +8,8 @@ import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
 
+import java.util.List;
+
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = "spring")
 public interface CategoryMapper {
 
@@ -18,4 +20,6 @@ public interface CategoryMapper {
     AddCategoryResponse mapCategoryEntity(final Category category);
 
     FetchCategoryResponse mapFetchedCategory(final Category category);
+
+    List<FetchCategoryResponse> mapFetchedCategories(final List<Category> categories);
 }

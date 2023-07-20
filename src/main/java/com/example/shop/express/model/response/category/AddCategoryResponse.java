@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class AddCategoryResponse {
 
-    private Integer categoryId;
+    private Integer id;
 
     private Long createdAt;
 
