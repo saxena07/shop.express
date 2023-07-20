@@ -6,6 +6,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
+
+import javax.validation.constraints.NotEmpty;
 
 @Data
 //@JsonInclude(JsonInclude.Include.NON_NULL)
@@ -16,12 +19,16 @@ import lombok.NoArgsConstructor;
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class ContactDetailRequest {
 
-    private Integer id;
+    @NonNull
+    private Integer userId;
 
+    @NotEmpty
     private String phoneNumber;
 
+    @NotEmpty
     private String address;
 
+    @NonNull
     private String state;
 
     private String city;
@@ -31,5 +38,4 @@ public class ContactDetailRequest {
     private String zipCode;
 
     private Boolean isDefault;
-
 }
