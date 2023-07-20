@@ -1,4 +1,42 @@
 package com.example.shop.express.controller;
 
+<<<<<<< Updated upstream
 public class OrderController {
+=======
+
+import com.example.shop.express.model.request.order.CreateOrderRequest;
+import com.example.shop.express.model.request.order.FetchOrdersRequest;
+import com.example.shop.express.model.response.CreateOrderResponse;
+import com.example.shop.express.model.response.order.FetchOrderResponse;
+import com.example.shop.express.service.IOrderService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
+
+@RestController
+@RequestMapping(value = "api/v1/orders")
+public class OrderController {
+
+    @Autowired
+    IOrderService orderService;
+
+    @PostMapping
+    public CreateOrderResponse createOrderResponse(@RequestBody final CreateOrderRequest createOrderRequest){
+        return orderService.createOrder(createOrderRequest);
+    }
+
+    @GetMapping
+    public List<FetchOrderResponse> fetchOrders(@RequestParam(value = "id", required = false) final Integer id) {
+        FetchOrdersRequest fetchOrdersRequest = FetchOrdersRequest.builder().id(id).build();
+        return orderService.fetchOrders(fetchOrdersRequest);
+    }
+
+
+>>>>>>> Stashed changes
 }

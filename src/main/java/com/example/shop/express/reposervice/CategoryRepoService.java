@@ -5,6 +5,8 @@ import com.example.shop.express.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CategoryRepoService {
 
@@ -17,5 +19,9 @@ public class CategoryRepoService {
 
     public Category fetchCategory(Integer id) {
         return categoryRepository.fetchCategory(id);
+    }
+
+    public List<Category> fetchCategories() {
+        return categoryRepository.fetchCategories();
     }
 }
