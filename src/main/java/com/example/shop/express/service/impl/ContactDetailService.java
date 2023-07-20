@@ -46,8 +46,12 @@ public class ContactDetailService implements IContactDetailService {
 
     @Override
     public ContactDetailResponse fetchContactDetail(final Integer id) {
-        return contactDetailMapper.mapContactDetailResponse(
-                contactDetailRepoService.fetchContactDetail(id));
+
+        ContactDetail contactDetail=contactDetailRepoService.fetchContactDetail(id);
+        ContactDetailResponse contactDetailResponse=
+                contactDetailMapper.mapContactDetailResponse(contactDetail);
+                        contactDetailResponse.setUserId(contactDetail.getUser().getId());
+                        return contactDetailResponse;
     }
 
     @Override

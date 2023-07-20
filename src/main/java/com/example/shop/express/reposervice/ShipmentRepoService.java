@@ -14,4 +14,8 @@ public class ShipmentRepoService {
     public Shipment saveShipment(final Shipment shipment) {
         return shipmentRepository.save(shipment);
     }
+
+    public Shipment fetchById(final Integer id) {
+        return shipmentRepository.getReferenceById(id);
+    }
 }

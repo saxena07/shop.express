@@ -21,13 +21,13 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping(value = "/api/v1/user")
+@RequestMapping(value = "/api/v1/users")
 public class UserController {
 
     @Autowired
     private IUserService userService;
 
-    @PostMapping(value = "/create")
+    @PostMapping()
     public UserCreateResponse create(
             @Valid @RequestBody final UserCreateRequest userCreateRequest) {
 //        userCreateRequest.setPassword("12345678");
@@ -47,7 +47,7 @@ public class UserController {
 //        return userService.getUserDetails(userDetailsRequest);
 //    }
 
-    @PutMapping(value = "/update")
+    @PutMapping()
     public UserDetailResponse updateUser(@RequestBody final UserUpdateRequest userUpdateRequest )
     {
 //        return new ServiceResponse<>(new BaseMessageResponse<>(userService.updateDetails(userUpdateRequest)));

@@ -46,8 +46,11 @@ public class UserService implements IUserService {
 
     @Override
     public UserDetailResponse updateDetails(UserUpdateRequest userUpdateRequest) {
+        User updatedUser=userMapper.mapUser(userUpdateRequest);
+
         User oldUser=userRepoService.getDetails(userUpdateRequest.getId());
-        User updatedUser=userMapper.mapUser(oldUser);
+
+                updatedUser=userMapper.mapUser(oldUser);
         return userMapper.mapUserDetailsResponse(userRepoService.createUser(updatedUser));
     }
 

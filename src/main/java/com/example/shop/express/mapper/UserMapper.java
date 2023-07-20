@@ -3,6 +3,7 @@ package com.example.shop.express.mapper;
 import com.example.shop.express.entity.User;
 import com.example.shop.express.model.request.user.UserCreateRequest;
 import com.example.shop.express.model.request.user.UserDetailsRequest;
+import com.example.shop.express.model.request.user.UserUpdateRequest;
 import com.example.shop.express.model.response.user.UserCreateResponse;
 import com.example.shop.express.model.response.user.UserDetailResponse;
 import org.mapstruct.Mapper;
@@ -27,4 +28,5 @@ public interface UserMapper {
 
     User mapUser(User oldUser);
 
+    User mapUser(final UserUpdateRequest userUpdateRequest);
 }
