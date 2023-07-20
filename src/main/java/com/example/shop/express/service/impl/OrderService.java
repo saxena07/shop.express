@@ -11,6 +11,7 @@ import com.example.shop.express.reposervice.OrderItemRepoService;
 import com.example.shop.express.reposervice.OrderRepoService;
 import com.example.shop.express.reposervice.ProductRepoService;
 import com.example.shop.express.reposervice.SellerProductRepoService;
+import com.example.shop.express.reposervice.ShipmentRepoService;
 import com.example.shop.express.reposervice.UserRepoService;
 import com.example.shop.express.service.IOrderService;
 import org.aspectj.weaver.ast.Or;
@@ -37,6 +38,9 @@ public class OrderService implements IOrderService {
 
     @Autowired
     ProductRepoService productRepoService;
+
+    @Autowired
+    ShipmentRepoService shipmentRepoService;
 
     @Autowired
     OrderMapper orderMapper;
