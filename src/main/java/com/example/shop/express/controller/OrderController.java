@@ -1,12 +1,9 @@
 package com.example.shop.express.controller;
 
-<<<<<<< Updated upstream
-public class OrderController {
-=======
 
 import com.example.shop.express.model.request.order.CreateOrderRequest;
 import com.example.shop.express.model.request.order.FetchOrdersRequest;
-import com.example.shop.express.model.response.CreateOrderResponse;
+import com.example.shop.express.model.response.order.CreateOrderResponse;
 import com.example.shop.express.model.response.order.FetchOrderResponse;
 import com.example.shop.express.service.IOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +34,4 @@ public class OrderController {
         return orderService.fetchOrders(fetchOrdersRequest);
     }
 
-
->>>>>>> Stashed changes
 }

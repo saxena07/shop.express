@@ -1,7 +1,6 @@
 package com.example.shop.express.service.impl;
 
 import com.example.shop.express.entity.ContactDetail;
-import com.example.shop.express.entity.User;
 import com.example.shop.express.mapper.ContactDetailMapper;
 import com.example.shop.express.model.request.contactDetail.ContactDetailRequest;
 import com.example.shop.express.model.request.contactDetail.ContactDetailUpdateRequest;
@@ -30,7 +29,8 @@ public class ContactDetailService implements IContactDetailService {
     //private final ContactMapper contactMapper=ContactMapper.INSTANCE;
 
     @Override
-    public ContactDetailResponse createContactDetails(ContactDetailRequest contactDetailRequest) {
+    public ContactDetailResponse createContactDetails(
+            final ContactDetailRequest contactDetailRequest) {
 
         ContactDetail contactDetail = contactDetailMapper.mapContactDetail(contactDetailRequest);
         contactDetail.setUser(userRepoService.getDetails(contactDetailRequest.getUserId()));
@@ -47,11 +47,11 @@ public class ContactDetailService implements IContactDetailService {
     @Override
     public ContactDetailResponse fetchContactDetail(final Integer id) {
 
-        ContactDetail contactDetail=contactDetailRepoService.fetchContactDetail(id);
-        ContactDetailResponse contactDetailResponse=
+        ContactDetail contactDetail = contactDetailRepoService.fetchContactDetail(id);
+        ContactDetailResponse contactDetailResponse =
                 contactDetailMapper.mapContactDetailResponse(contactDetail);
-                        contactDetailResponse.setUserId(contactDetail.getUser().getId());
-                        return contactDetailResponse;
+        contactDetailResponse.setUserId(contactDetail.getUser().getId());
+        return contactDetailResponse;
     }
 
     @Override
@@ -67,11 +67,11 @@ public class ContactDetailService implements IContactDetailService {
     public ContactDetailResponse updateContactDetails(
             final ContactDetailUpdateRequest contactDetailUpdateRequest) {
 
-        ContactDetail oldContactDetail = contactDetailRepoService.fetchContactDetail(
-                contactDetailUpdateRequest.getId());
+        ContactDetail oldContactDetail =
+                contactDetailRepoService.fetchContactDetail(contactDetailUpdateRequest.getId());
 
         ContactDetail newContactDetail = contactDetailMapper.mapContactDetail(oldContactDetail);
-        newContactDetail= contactDetailMapper.mapContactDetail(contactDetailUpdateRequest);
+        newContactDetail = contactDetailMapper.mapContactDetail(contactDetailUpdateRequest);
 
         log.info(oldContactDetail.toString());
         newContactDetail.setUser(oldContactDetail.getUser());

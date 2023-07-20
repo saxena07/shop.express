@@ -5,7 +5,7 @@ import com.example.shop.express.entity.OrderItem;
 import com.example.shop.express.mapper.OrderMapper;
 import com.example.shop.express.model.request.order.CreateOrderRequest;
 import com.example.shop.express.model.request.order.FetchOrdersRequest;
-import com.example.shop.express.model.response.CreateOrderResponse;
+import com.example.shop.express.model.response.order.CreateOrderResponse;
 import com.example.shop.express.model.response.order.FetchOrderResponse;
 import com.example.shop.express.reposervice.OrderItemRepoService;
 import com.example.shop.express.reposervice.OrderRepoService;
@@ -14,8 +14,6 @@ import com.example.shop.express.reposervice.SellerProductRepoService;
 import com.example.shop.express.reposervice.ShipmentRepoService;
 import com.example.shop.express.reposervice.UserRepoService;
 import com.example.shop.express.service.IOrderService;
-import org.aspectj.weaver.ast.Or;
-import org.hibernate.type.OrderedMapType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

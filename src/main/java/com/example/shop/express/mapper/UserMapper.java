@@ -17,14 +17,14 @@ public interface UserMapper {
 
     UserMapper INSTANCE = Mappers.getMapper(UserMapper.class);
 
-    User mapUser(UserCreateRequest userCreateRequest);
+    User mapUser(final UserCreateRequest userCreateRequest);
 
 
-    UserCreateResponse mapUserResponse(User user);
+    UserCreateResponse mapUserResponse(final User user);
 
-    UserDetailResponse mapUserDetailsResponse(User user);
+    UserDetailResponse mapUserDetailsResponse(final User user);
 
-    User mapUser(UserDetailsRequest userDetailsRequest);
+    User mapUser(final UserDetailsRequest userDetailsRequest);
 
     User mapUser(User oldUser);
 

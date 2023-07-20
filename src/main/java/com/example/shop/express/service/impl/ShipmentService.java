@@ -1,4 +1,4 @@
-package com.example.shop.express.service;
+package com.example.shop.express.service.impl;
 
 import com.example.shop.express.entity.Shipment;
 import com.example.shop.express.mapper.ShipmentMapper;
@@ -8,6 +8,7 @@ import com.example.shop.express.reposervice.ContactDetailRepoService;
 import com.example.shop.express.reposervice.OrderRepoService;
 import com.example.shop.express.reposervice.ShipmentRepoService;
 import com.example.shop.express.reposervice.UserRepoService;
+import com.example.shop.express.service.IShipmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -49,6 +50,6 @@ public class ShipmentService implements IShipmentService {
     @Override
     public ShipmentResponse fetchShipment(final Integer id)
     {
-        return shipmentMapper.mapShipmentResponse(shipmentRepoService.fetchById(id));
+        return shipmentMapper.mapShipmentResponse(shipmentRepoService.fetchShipment(id));
     }
 }

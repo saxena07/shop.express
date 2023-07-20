@@ -12,12 +12,12 @@ public interface ContactDetailMapper {
 
     ContactDetailMapper INSTANCE= Mappers.getMapper(ContactDetailMapper.class);
 
-    ContactDetail mapContactDetail(ContactDetailRequest contactDetailRequest);
+    ContactDetail mapContactDetail(final ContactDetailRequest contactDetailRequest);
 
 
     ContactDetailResponse mapContactDetailResponse(final ContactDetail contactDetail);
 
-    ContactDetail mapContactDetail(ContactDetailUpdateRequest contactDetailUpdateRequest);
+    ContactDetail mapContactDetail(final ContactDetailUpdateRequest contactDetailUpdateRequest);
 
-    ContactDetail mapContactDetail(ContactDetail contactDetail);
+    ContactDetail mapContactDetail(final ContactDetail contactDetail);
 }

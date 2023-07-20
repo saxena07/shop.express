@@ -50,8 +50,8 @@ public class User extends AbstractEntity {
     // stores md5 encrypted key
 
     @JsonManagedReference
-    @OneToOne
-    @JoinColumn(name = "seller_detail_id", nullable = true)
+    @OneToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name = "seller_detail_id")
     private SellerDetail sellerDetail;
 
     @JsonManagedReference

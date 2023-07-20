@@ -25,7 +25,6 @@ public class UserCreateRequest {
     @NonNull
     private String firstName;
 
-
     private String lastName;
 
     @NotEmpty(message = "Email is mandatory")
