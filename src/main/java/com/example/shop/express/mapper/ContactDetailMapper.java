@@ -15,7 +15,9 @@ public interface ContactDetailMapper {
     ContactDetail mapContactDetail(ContactDetailRequest contactDetailRequest);
 
 
-    ContactDetailResponse mapContactDetailResponse(ContactDetail contactDetail);
+    ContactDetailResponse mapContactDetailResponse(final ContactDetail contactDetail);
 
     ContactDetail mapContactDetail(ContactDetailUpdateRequest contactDetailUpdateRequest);
+
+    ContactDetail mapContactDetail(ContactDetail contactDetail);
 }
