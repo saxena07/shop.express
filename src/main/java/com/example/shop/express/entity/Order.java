@@ -52,7 +52,7 @@ public class Order extends AbstractEntity {
 
     @JsonManagedReference
     @OneToOne
-    @JoinColumn(name = "shipment_id", nullable = false)
+    @JoinColumn(name = "shipment_id", nullable = true)
     private Shipment shipment;
 
     @ToString.Exclude

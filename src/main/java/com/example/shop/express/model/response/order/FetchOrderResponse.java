@@ -1,5 +1,6 @@
 package com.example.shop.express.model.response.order;
 
+import com.example.shop.express.entity.OrderItem;
 import com.example.shop.express.entity.Shipment;
 import com.example.shop.express.entity.User;
 import com.example.shop.express.enums.OrderStatus;
@@ -19,14 +20,18 @@ import lombok.NoArgsConstructor;
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class FetchOrderResponse {
 
+    private Integer id;
+
     private Long orderedAt;
 
     private Double totalAmount;
 
-    private OrderStatus orderStatus;
+    private OrderStatus status;
 
     private Shipment shipment;
 
     private User user;
+
+    private OrderItem orderItem;
 
 }

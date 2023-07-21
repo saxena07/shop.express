@@ -4,6 +4,7 @@ import com.example.shop.express.entity.User;
 import com.example.shop.express.model.request.user.UserDetailsRequest;
 import com.example.shop.express.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
+import org.mapstruct.Named;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +21,7 @@ public class UserRepoService {
 
     }
 
+    @Named("getUser")
     public User getDetails(final Integer id) {
         Optional<User> userOptional = userRepository.findById(id);
         return userOptional.orElse(null);

@@ -1,11 +1,17 @@
 package com.example.shop.express.service.impl;
 
+import com.example.shop.express.constant.Constant;
 import com.example.shop.express.entity.Order;
 import com.example.shop.express.entity.OrderItem;
+import com.example.shop.express.entity.SellerProduct;
+import com.example.shop.express.entity.Shipment;
+import com.example.shop.express.exception.InvalidActionException;
+import com.example.shop.express.mapper.OrderItemMapper;
 import com.example.shop.express.mapper.OrderMapper;
 import com.example.shop.express.model.request.order.CreateOrderRequest;
 import com.example.shop.express.model.request.order.FetchOrdersRequest;
-import com.example.shop.express.model.response.CreateOrderResponse;
+import com.example.shop.express.model.request.orderItem.OrderItemRequest;
+import com.example.shop.express.model.response.order.CreateOrderResponse;
 import com.example.shop.express.model.response.order.FetchOrderResponse;
 import com.example.shop.express.reposervice.OrderItemRepoService;
 import com.example.shop.express.reposervice.OrderRepoService;
@@ -13,9 +19,8 @@ import com.example.shop.express.reposervice.ProductRepoService;
 import com.example.shop.express.reposervice.SellerProductRepoService;
 import com.example.shop.express.reposervice.ShipmentRepoService;
 import com.example.shop.express.reposervice.UserRepoService;
+import com.example.shop.express.repository.SellerProductRepository;
 import com.example.shop.express.service.IOrderService;
-import org.aspectj.weaver.ast.Or;
-import org.hibernate.type.OrderedMapType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -45,6 +50,9 @@ public class OrderService implements IOrderService {
     @Autowired
     OrderMapper orderMapper;
 
+    @Autowired
+    OrderItemMapper orderItemMapper;
+
     @Override
     public List<FetchOrderResponse> fetchOrders(final FetchOrdersRequest fetchOrdersRequest) {
         List<Order> orders = orderRepoService.fetchOrders(fetchOrdersRequest.getId());
@@ -55,28 +63,32 @@ public class OrderService implements IOrderService {
     public CreateOrderResponse createOrder(final CreateOrderRequest createOrderRequest) {
 
         Order order = orderMapper.mapCreateOrderRequest(createOrderRequest);
-        order.setUser(userRepoService.getDetails(createOrderRequest.getUserId()));
-        order.setShipment(shipmentRepoService.fetchShipment(createOrderRequest.getShipmentId()));
+//        order.setUser(userRepoService.getDetails(createOrderRequest.getUserId()));
+//        order.setShipment(shipmentRepoService.fetchShipment(createOrderRequest.getShipmentId()));
+        List<OrderItemRequest> orderItems = createOrderRequest.getOrderItems();
 
-        List<OrderItem> orderItems = createOrderRequest.getOrderItems();
-
-        for(OrderItem orderItem : orderItems){
-            if(orderItem.getQuantity() > sellerProductRepoService.fetchQuantity(orderItem.getProduct().getId())){
+        for (OrderItemRequest orderItemRequest : orderItems) {
+            if (orderItemRequest.getQuantity() < sellerProductRepoService.fetchQuantity(
+                    orderItemRequest.getProductId())) {
                 continue;
-            }else{
-                /// throw exception;
+            } else {
+                throw new InvalidActionException(Constant.CANT_PLACE_ORDER);
             }
         }
-
-        //  create order
-        for(OrderItem orderItem : orderItems){
-            orderItem.setProduct(productRepoService.fetchProduct(orderItem.getProduct().getId()));
-                orderItemRepoService.saveOrder(orderItem);
-                sellerProductRepoService.updateQuantity(orderItem.getProduct().getId(), orderItem.getQuantity());
-        }
-
         order = orderRepoService.saveOrder(order);
-
+        //  create order
+        for (OrderItemRequest orderItemRequest : orderItems) {
+            OrderItem orderItem = orderItemMapper.mapOrderItemRequest(orderItemRequest);
+            orderItem.setProduct(productRepoService.fetchProduct(orderItemRequest.getProductId()));
+            orderItem.setOrder(order);
+            orderItem.setSellerProduct(sellerProductRepoService.fetchSellerProduct(
+                    orderItemRequest.getSellerProductId()));
+            orderItemRepoService.saveOrder(orderItem);
+            SellerProduct sellerProduct =
+                    sellerProductRepoService.updateQuantity(orderItemRequest.getSellerProductId(),
+                            orderItemRequest.getProductId(), orderItem.getQuantity());
+            System.out.println(sellerProduct);
+        }
         return orderMapper.mapCreateOrderEntity(order);
     }
 }

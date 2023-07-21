@@ -1,4 +1,4 @@
-package com.example.shop.express.model.response;
+package com.example.shop.express.model.request.orderItem;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
@@ -14,8 +14,16 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
-public class CreateOrderResponse {
+public class OrderItemRequest {
 
+    private Integer quantity;
 
+    private double price;
+
+    private Integer sellerProductId;
+
+    private Integer ProductId;
+
+    private Integer orderId;
 
 }

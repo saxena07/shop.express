@@ -1,9 +1,8 @@
-package com.example.shop.express.model.request.order;
+package com.example.shop.express.model.response.order;
 
 import com.example.shop.express.entity.OrderItem;
+import com.example.shop.express.entity.User;
 import com.example.shop.express.enums.OrderStatus;
-import com.example.shop.express.model.request.orderItem.OrderItemRequest;
-import com.example.shop.express.reposervice.OrderItemRepoService;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import lombok.AllArgsConstructor;
@@ -21,18 +20,20 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
-public class CreateOrderRequest {
+public class CreateOrderResponse {
+
+    private Integer id;
+
+    private Long createdAt;
 
     private Long orderedAt;
 
-    private OrderStatus status;
-
     private Double totalAmount;
 
-    private Integer shipmentId;
+    private OrderStatus status;
+//
+//    private List<OrderItem> orderItem;
 
-    private Integer userId;
-
-    private List<OrderItemRequest> orderItems;
+    private User user;
 
 }
