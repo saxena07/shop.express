@@ -35,14 +35,19 @@ public class ShipmentService implements IShipmentService {
 
         Shipment shipment = shipmentMapper.mapShipment(shipmentRequest);
 
+        if(shipment.getOrder().getUser().getId()!=shipmentRequest.getUserId())
+        {
+            return null;
+        }
+
+
         //scope for exception
-        shipment.setUser(userRepoService.getDetails(shipmentRequest.getUserId()));
-
-        shipment.setOrder(orderRepoService.fetchOrderById(shipmentRequest.getOrderId()));
-
-        shipment.setContactDetail(
-                contactDetailRepoService.fetchContactDetail(shipmentRequest.getContactDetailId()));
-
+//        shipment.setUser(userRepoService.getDetails(shipmentRequest.getUserId()));
+//
+//        shipment.setOrder(orderRepoService.fetchOrderById(shipmentRequest.getOrderId()));
+//
+//        shipment.setContactDetail(
+//                contactDetailRepoService.fetchContactDetail(shipmentRequest.getContactDetailId()));
 
         return shipmentMapper.mapShipmentResponse(shipmentRepoService.saveShipment(shipment));
     }
