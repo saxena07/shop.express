@@ -7,4 +7,5 @@ public final class Constant {
     public static final String PROVIDE_CATEGORY_ID = "provide_category_id";
     public static final String PROVIDE_SELLER_ID = "provide_seller_id_for_product_registration";
 
+    public static final String CANT_PLACE_ORDER = "cannot_place_order_out_of_stock";
 }

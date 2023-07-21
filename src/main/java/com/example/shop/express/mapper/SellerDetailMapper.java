@@ -15,6 +15,6 @@ public interface SellerDetailMapper {
     SellerDetail mapSellerDetail(final SellerDetailRequest sellerDetailRequest);
 
 
-    //@Mapping(target = "userId" ,source = "sellerDetail.User.Id")
+    //@Mapping(target = "userId" ,source = "sellerdetail.user")
     SellerDetailResponse mapSellerDetailResponse(final SellerDetail sellerDetail);
 }

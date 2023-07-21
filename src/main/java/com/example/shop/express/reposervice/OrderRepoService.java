@@ -26,6 +26,6 @@ public class OrderRepoService {
     }
 
     public List<Order> fetchOrders(Integer id) {
-        return orderRepository.findAll();
+        return orderRepository.fetchOrders(id);
     }
 }

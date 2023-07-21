@@ -2,6 +2,8 @@ package com.example.shop.express.model.request.order;
 
 import com.example.shop.express.entity.OrderItem;
 import com.example.shop.express.enums.OrderStatus;
+import com.example.shop.express.model.request.orderItem.OrderItemRequest;
+import com.example.shop.express.reposervice.OrderItemRepoService;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import lombok.AllArgsConstructor;
@@ -31,6 +33,6 @@ public class CreateOrderRequest {
 
     private Integer userId;
 
-    private List<OrderItem> orderItems;
+    private List<OrderItemRequest> orderItems;
 
 }

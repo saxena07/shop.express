@@ -2,6 +2,7 @@ package com.example.shop.express.service.impl;
 
 import com.example.shop.express.entity.SellerDetail;
 import com.example.shop.express.entity.User;
+import com.example.shop.express.enums.UserType;
 import com.example.shop.express.mapper.SellerDetailMapper;
 import com.example.shop.express.model.request.sellerDetail.SellerDetailRequest;
 import com.example.shop.express.model.response.sellerDetail.SellerDetailResponse;
@@ -28,19 +29,25 @@ public class SellerDetailService implements ISellerDetailService
     @Override
     public SellerDetailResponse addSellerDetail(final SellerDetailRequest sellerDetailRequest) {
 
-        Optional<User> user=
+        Optional<User> userOptional=
                 Optional.ofNullable(userRepoService.getDetails(sellerDetailRequest.getUserId()));
-        SellerDetail sellerDetail = sellerDetailMapper.mapSellerDetail(sellerDetailRequest);
+        User user=userOptional.orElseThrow(null);
 
+        if (user.getType() != UserType.SELLER)
+        {
+            return null;
+        }
+        else {
 
-        //  improve this part
-        user.get().setSellerDetail(sellerDetail);
-        //userRepoService.createUser(user.get());
-        SellerDetailResponse sellerDetailResponse=
-                sellerDetailMapper.mapSellerDetailResponse(sellerDetailRepoService.saveSellerDetail(sellerDetail));
-        sellerDetailResponse.setUserId(user.get().getId());
-        return sellerDetailResponse;
+            SellerDetail sellerDetail = sellerDetailMapper.mapSellerDetail(sellerDetailRequest);
 
+            user.setSellerDetail(sellerDetail);
+            //userRepoService.createUser(userOptional.get());
+            SellerDetailResponse sellerDetailResponse =
+                    sellerDetailMapper.mapSellerDetailResponse(sellerDetailRepoService.saveSellerDetail(sellerDetail));
+            sellerDetailResponse.setUserId(user.getId());
+            return sellerDetailResponse;
+        }
 
 
 

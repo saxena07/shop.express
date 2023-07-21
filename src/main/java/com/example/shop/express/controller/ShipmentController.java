@@ -28,7 +28,7 @@ public class ShipmentController {
     @PostMapping
     public ShipmentResponse createShipment(@RequestBody @Valid final ShipmentRequest shipmentRequest)
     {
-    return shipmentService.createShipment(shipmentRequest);
+        return shipmentService.createShipment(shipmentRequest);
     }
 
     @GetMapping(value = "/{id}")

@@ -47,7 +47,7 @@ public class Payment extends AbstractEntity {
     private PaymentStatus status;
 
     @Column
-    private Long amount;
+    private Double amount;
 
     @ToString.Exclude
     @JsonBackReference

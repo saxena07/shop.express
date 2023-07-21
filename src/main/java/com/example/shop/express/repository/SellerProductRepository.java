@@ -17,6 +17,4 @@ public interface SellerProductRepository
     @Query(value = "Select quantity from seller_product where product_id=:id", nativeQuery = true)
     Integer fetchQuantity(Integer id);
 
-    @Query(value = "UPDATE seller_product SET quantity = quantity-:quantity WHERE product_id = :id", nativeQuery = true)
-    void updateQuantity(Integer id, Integer quantity);
 }
