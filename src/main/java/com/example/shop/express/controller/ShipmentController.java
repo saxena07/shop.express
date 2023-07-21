@@ -24,7 +24,7 @@ public class ShipmentController {
      * @return
      */
     @PostMapping
-    public ShipmentResponse createShipment(@RequestBody @Valid final ShipmentRequest shipmentRequest)
+    public ShipmentResponse createShipment(@Valid @RequestBody final ShipmentRequest shipmentRequest)
     {
         return shipmentService.createShipment(shipmentRequest);
     }

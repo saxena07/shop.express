@@ -1,5 +1,6 @@
 package com.example.shop.express.model.request.contactDetail;
 
+import com.example.shop.express.constant.Constant;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import lombok.AllArgsConstructor;
@@ -9,6 +10,7 @@ import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Data
 //@JsonInclude(JsonInclude.Include.NON_NULL)
@@ -19,22 +21,25 @@ import javax.validation.constraints.NotEmpty;
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class ContactDetailRequest {
 
-    @NonNull
+    @NotNull(message = Constant.PROVIDE_ALL_CATEGORY_DETAILS)
     private Integer userId;
 
-    @NotEmpty
+    @NotEmpty(message = Constant.PROVIDE_ALL_CATEGORY_DETAILS)
     private String phoneNumber;
 
-    @NotEmpty
+    @NotEmpty(message = Constant.PROVIDE_ALL_CATEGORY_DETAILS)
     private String address;
 
-    @NonNull
+    @NotEmpty(message = Constant.PROVIDE_ALL_CATEGORY_DETAILS)
     private String state;
 
+    @NotEmpty(message = Constant.PROVIDE_ALL_CATEGORY_DETAILS)
     private String city;
 
+    @NotEmpty(message = Constant.PROVIDE_ALL_CATEGORY_DETAILS)
     private String country;
 
+    @NotEmpty(message = Constant.PROVIDE_ALL_CATEGORY_DETAILS)
     private String zipCode;
 
     private Boolean isDefault;

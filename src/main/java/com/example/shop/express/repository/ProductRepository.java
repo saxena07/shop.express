@@ -14,10 +14,12 @@ public interface ProductRepository
 
 //    Product save(final Product product);
 
-    @Query(value = "SELECT P.* FROM products P where (:id IS NULL OR P"
-                   + ".id=:id) AND (:name IS NULL OR P.name=:name) AND (:categoryId IS NULL OR P"
-                   + ".category_id=:categoryId)", nativeQuery = true)
-    List<Product> fetchProducts(Integer id, String name, Integer categoryId);
+    @Query(value = "SELECT P.* FROM products P INNER JOIN categories C ON P.category_id = C.id "
+                   + "where (:id IS NULL OR P.id=:id) AND (:name IS NULL OR P.name=:name) AND (:categoryId IS NULL OR P"
+                   + ".category_id=:categoryId) AND (:categoryOrdinal IS NULL OR C"
+                   + ".name=:categoryOrdinal)", nativeQuery = true)
+    List<Product> fetchProducts(Integer id, String name, Integer categoryId,
+                                Integer categoryOrdinal);
 
     @Query(value = "SELECT P.* FROM products P WHERE P.id=:id", nativeQuery = true)
     Product fetchProduct(Integer id);

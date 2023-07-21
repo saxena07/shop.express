@@ -23,4 +23,5 @@ public class FetchProductsRequest {
 
     private Integer categoryId;
 
+    private String categoryName;
 }

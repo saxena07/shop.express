@@ -1,8 +1,10 @@
 package com.example.shop.express.model.response.order;
 
 import com.example.shop.express.entity.OrderItem;
+import com.example.shop.express.entity.Payment;
 import com.example.shop.express.entity.User;
 import com.example.shop.express.enums.OrderStatus;
+import com.example.shop.express.enums.PaymentStatus;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import lombok.AllArgsConstructor;
@@ -35,5 +37,7 @@ public class CreateOrderResponse {
 //    private List<OrderItem> orderItem;
 
     private User user;
+
+    private List<Payment> payment;
 
 }

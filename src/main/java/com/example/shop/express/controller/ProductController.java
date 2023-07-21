@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RequestMapping(value = "api/v1/products")
@@ -25,7 +26,7 @@ public class ProductController {
 
     // check seller
     @PostMapping
-    public AddProductResponse addProduct(@RequestBody final AddProductRequest addProductRequest) {
+    public AddProductResponse addProduct(@Valid @RequestBody final AddProductRequest addProductRequest) {
         return productService.addProduct(addProductRequest);
     }
 
@@ -40,10 +41,11 @@ public class ProductController {
     public List<FetchProductResponse> fetchProducts(
             @RequestParam(value = "id", required = false) final Integer id,
             @RequestParam(value = "name", required = false) final String name,
-            @RequestParam(value = "category", required = false) final Integer categoryId
+            @RequestParam(value = "category_id", required = false) final Integer categoryId,
+            @RequestParam(value = "category_name", required = false) final String categoryName
             ) {
         FetchProductsRequest fetchProductsRequest =
-                FetchProductsRequest.builder().id(id).name(name).categoryId(categoryId).build();
+               FetchProductsRequest.builder().id(id).name(name).categoryId(categoryId).categoryName(categoryName).build();
         return productService.fetchProducts(fetchProductsRequest);
     }
 

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -23,13 +24,13 @@ public class OrderController {
     IOrderService orderService;
 
     @PostMapping
-    public CreateOrderResponse createOrder(@RequestBody final CreateOrderRequest createOrderRequest){
+    public CreateOrderResponse createOrder(@Valid @RequestBody final CreateOrderRequest createOrderRequest){
         System.out.println(createOrderRequest);
         return orderService.createOrder(createOrderRequest);
     }
 
     @GetMapping
-    public List<FetchOrderResponse> fetchOrders(@RequestParam(value = "id", required = true) final Integer id) {
+    public List<FetchOrderResponse> fetchOrders(@Valid @RequestParam(value = "id", required = true) final Integer id) {
         FetchOrdersRequest fetchOrdersRequest = FetchOrdersRequest.builder().id(id).build();
         return orderService.fetchOrders(fetchOrdersRequest);
     }

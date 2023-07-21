@@ -21,13 +21,12 @@ import javax.validation.constraints.NotEmpty;
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class ShipmentRequest {
 
-
     private Integer orderId;
 
-   // @NotEmpty(message = ErrorConstant.ID_IS_MANDATORY)
+    @NotEmpty(message = ErrorConstant.ID_IS_MANDATORY)
     private Integer userId;
 
-   // @NotEmpty(message = ErrorConstant.ID_IS_MANDATORY)
+    @NotEmpty(message = ErrorConstant.ID_IS_MANDATORY)
     private Integer contactDetailId;
 
     private Long dateTime;

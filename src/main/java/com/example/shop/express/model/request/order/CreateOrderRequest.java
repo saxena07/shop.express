@@ -1,9 +1,8 @@
 package com.example.shop.express.model.request.order;
 
-import com.example.shop.express.entity.OrderItem;
+import com.example.shop.express.constant.Constant;
 import com.example.shop.express.enums.OrderStatus;
 import com.example.shop.express.model.request.orderItem.OrderItemRequest;
-import com.example.shop.express.reposervice.OrderItemRepoService;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import lombok.AllArgsConstructor;
@@ -11,7 +10,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.criteria.CriteriaBuilder;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Data
@@ -23,16 +23,20 @@ import java.util.List;
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class CreateOrderRequest {
 
+    @NotBlank(message = Constant.PROVIDE_ALL_ORDER_DETAILS)
     private Long orderedAt;
 
     private OrderStatus status;
 
+    @NotNull(message = Constant.PROVIDE_ALL_ORDER_DETAILS)
     private Double totalAmount;
 
     private Integer shipmentId;
 
+    @NotNull(message = Constant.PROVIDE_ALL_CATEGORY_DETAILS)
     private Integer userId;
 
+    @NotNull(message = Constant.PROVIDE_ALL_CATEGORY_DETAILS)
     private List<OrderItemRequest> orderItems;
 
 }

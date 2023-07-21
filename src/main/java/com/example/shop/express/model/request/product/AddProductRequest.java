@@ -25,7 +25,6 @@ public class AddProductRequest {
 
     private String description;
 
-    @NotNull(message = Constant.PROVIDE_ALL_PRODUCT_DETAILS)
     private Integer categoryId;
 
     @NotNull(message = Constant.PROVIDE_SELLER_ID)

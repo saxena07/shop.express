@@ -1,5 +1,6 @@
 package com.example.shop.express.model.request.user;
 
+import com.example.shop.express.constant.Constant;
 import com.example.shop.express.enums.UserType;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -10,6 +11,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
+import org.apache.tomcat.util.bcel.Const;
 
 import javax.validation.constraints.NotEmpty;
 
@@ -22,13 +24,13 @@ import javax.validation.constraints.NotEmpty;
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class UserCreateRequest {
 
-    @NonNull
+    @NotEmpty(message = Constant.PROVIDE_USER_DETAILS)
     private String firstName;
 
 
     private String lastName;
 
-    @NotEmpty(message = "Email is mandatory")
+    @NotEmpty(message = Constant.PROVIDE_USER_DETAILS)
     private String email;
 
     private UserType type;

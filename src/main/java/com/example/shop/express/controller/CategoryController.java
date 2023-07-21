@@ -24,7 +24,7 @@ public class CategoryController {
     ICategoryService categoryService;
 
     @GetMapping(value = "/details")
-    public FetchCategoryResponse fetchCategory(@RequestParam(name = "id", required = true) final Integer id){
+    public FetchCategoryResponse fetchCategory(@Valid @RequestParam(name = "id", required = true) final Integer id){
         FetchCategoryRequest fetchCategoryRequest = FetchCategoryRequest.builder().id(id).build();
         return categoryService.fetchCategory(fetchCategoryRequest);
     }

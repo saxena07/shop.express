@@ -11,6 +11,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 //@JsonInclude(JsonInclude.Include.NON_NULL)
 //@JsonIgnoreProperties(ignoreUnknown = true)
@@ -32,6 +34,6 @@ public class FetchOrderResponse {
 
     private User user;
 
-    private OrderItem orderItem;
+    private List<OrderItem> orderItem;
 
 }

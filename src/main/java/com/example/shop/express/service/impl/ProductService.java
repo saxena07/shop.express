@@ -69,7 +69,8 @@ public class ProductService implements IProductService {
     public List<FetchProductResponse> fetchProducts(
             final FetchProductsRequest fetchProductsRequest) {
         List<Product> products = productRepoService.fetchProducts(fetchProductsRequest.getId(),
-                fetchProductsRequest.getName(), fetchProductsRequest.getCategoryId());
+                fetchProductsRequest.getName(), fetchProductsRequest.getCategoryId(),
+                fetchProductsRequest.getCategoryName());
         return productMapper.mapFetchedProductsEntity(products);
     }
 
