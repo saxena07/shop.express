@@ -25,5 +25,6 @@ public interface ShipmentMapper {
 
     @Mapping(target = "userId",source ="shipment.user.id")
     @Mapping(target = "orderId",source ="shipment.order.id")
+    @Mapping(target = "order",source ="shipment.order" )
     ShipmentResponse mapShipmentResponse(Shipment shipment);
 }
