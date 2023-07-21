@@ -3,7 +3,6 @@ package com.example.shop.express.reposervice;
 import com.example.shop.express.entity.User;
 import com.example.shop.express.model.request.user.UserDetailsRequest;
 import com.example.shop.express.repository.UserRepository;
-import lombok.extern.slf4j.Slf4j;
 import org.mapstruct.Named;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

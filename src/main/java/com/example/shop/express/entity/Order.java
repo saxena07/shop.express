@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 import org.hibernate.envers.Audited;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -47,12 +48,12 @@ public class Order extends AbstractEntity {
     @OneToMany(mappedBy = "order", fetch = FetchType.EAGER)
     private List<OrderItem> orderItem;
 
-    @OneToMany(mappedBy = "order", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "order", fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     private List<Payment> payment;
 
     @JsonManagedReference
     @OneToOne
-    @JoinColumn(name = "shipment_id", nullable = true)
+    @JoinColumn(name = "shipment_id")
     private Shipment shipment;
 
     @ToString.Exclude

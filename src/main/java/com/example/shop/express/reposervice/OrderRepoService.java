@@ -2,6 +2,7 @@ package com.example.shop.express.reposervice;
 
 import com.example.shop.express.entity.Order;
 import com.example.shop.express.repository.OrderRepository;
+import org.mapstruct.Named;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +19,7 @@ public class OrderRepoService {
         return orderRepository.save(order);
     }
 
+    @Named("getOrder")
     public Order fetchOrderById(final  Integer id)
     {
         return orderRepository.getReferenceById(id);

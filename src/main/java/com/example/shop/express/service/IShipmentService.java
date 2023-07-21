@@ -7,4 +7,6 @@ import org.springframework.stereotype.Service;
 
 public interface IShipmentService {
     ShipmentResponse createShipment(final ShipmentRequest shipmentRequest);
+
+    ShipmentResponse fetchShipment(final Integer id);
 }

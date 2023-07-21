@@ -1,6 +1,7 @@
 package com.example.shop.express.model.response.shipment;
 
 import com.example.shop.express.constant.ErrorConstant;
+import com.example.shop.express.entity.Order;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import lombok.AllArgsConstructor;
@@ -25,6 +26,8 @@ public class ShipmentResponse {
     private Long createdAt;
 
     private Integer orderId;
+
+    private Order order;
 
     private Integer userId;
 

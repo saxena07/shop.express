@@ -27,7 +27,6 @@ public class UserCreateRequest {
     @NotEmpty(message = Constant.PROVIDE_USER_DETAILS)
     private String firstName;
 
-
     private String lastName;
 
     @NotEmpty(message = Constant.PROVIDE_USER_DETAILS)

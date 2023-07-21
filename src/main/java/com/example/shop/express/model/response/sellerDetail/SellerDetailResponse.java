@@ -1,6 +1,7 @@
-package com.example.shop.express.model.response.contactDetail;
+package com.example.shop.express.model.response.sellerDetail;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
+import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -8,13 +9,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-//@JsonInclude(JsonInclude.Include.NON_NULL)
-//@JsonIgnoreProperties(ignoreUnknown = true)
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
-public class ContactDetailResponse {
+public class SellerDetailResponse {
 
     private Integer id;
 
@@ -22,23 +21,8 @@ public class ContactDetailResponse {
 
     private Long createdAt;
 
-    private String phoneNumber;
+    private String GSTIN;
 
-
-    private String address;
-
-
-    private String state;
-
-
-    private String city;
-
-
-    private String country;
-
-
-    private String zipCode;
-
-    private Boolean isDefault;
+    private String organisation;
 
 }

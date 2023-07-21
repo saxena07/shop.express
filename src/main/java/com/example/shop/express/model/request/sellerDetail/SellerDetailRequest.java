@@ -1,11 +1,14 @@
-package com.example.shop.express.model.response.contactDetail;
+package com.example.shop.express.model.request.sellerDetail;
 
+import com.example.shop.express.entity.SellerDetail;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import javax.persistence.Column;
 
 @Data
 //@JsonInclude(JsonInclude.Include.NON_NULL)
@@ -14,31 +17,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
-public class ContactDetailResponse {
+public class SellerDetailRequest {
 
-    private Integer id;
+    private Integer UserId;
 
-    private Integer userId;
+    private String GSTIN;
 
-    private Long createdAt;
-
-    private String phoneNumber;
-
-
-    private String address;
-
-
-    private String state;
-
-
-    private String city;
-
-
-    private String country;
-
-
-    private String zipCode;
-
-    private Boolean isDefault;
+    private String organisation;
 
 }

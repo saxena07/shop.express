@@ -19,7 +19,7 @@ import lombok.NoArgsConstructor;
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class UserDetailsRequest {
 
-//    @NotEmpty(message = ErrorConstants.ID_IS_MANDATORY)
+    //    @NotEmpty(message = ErrorConstants.ID_IS_MANDATORY)
     private Integer id;
 
     private String firstName;
@@ -29,7 +29,6 @@ public class UserDetailsRequest {
     private String email;
 
     private UserType type;
-
 
 
 }
