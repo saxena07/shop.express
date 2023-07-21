@@ -7,6 +7,7 @@ import com.example.shop.express.model.request.user.UserUpdateRequest;
 import com.example.shop.express.model.response.user.UserCreateResponse;
 import com.example.shop.express.model.response.user.UserDetailResponse;
 import org.mapstruct.Mapper;
+import org.mapstruct.MappingTarget;
 import org.mapstruct.NullValuePropertyMappingStrategy;
 import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
@@ -28,5 +29,5 @@ public interface UserMapper {
 
     User mapUser(User oldUser);
 
-    User mapUser(final UserUpdateRequest userUpdateRequest);
+    User mapUser(final UserUpdateRequest userUpdateRequest, @MappingTarget User user);
 }

@@ -7,4 +7,6 @@ public interface IPaymentService {
     PaymentResponse createPayment(final PaymentRequest paymentRequest);
 
     PaymentResponse fetchPayment(final Integer id);
+
+    PaymentResponse addPaymentDetails(final PaymentRequest paymentRequest);
 }

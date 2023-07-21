@@ -15,4 +15,13 @@ public class PaymentRepoService {
     public Payment fetchPayment(final  Integer id) {
         return paymentRepository.getReferenceById(id);
     }
+
+    public Payment CreateOrUpdatePayment(final Payment payment)
+    {
+       return paymentRepository.save(payment);
+    }
+    public Payment fetchPaymentByOrderAndUser(final Integer userId,final Integer orderId )
+    {
+        return paymentRepository.findPaymentByOrder_IdAndUser_Id(orderId,userId).orElseThrow(null);
+    }
 }

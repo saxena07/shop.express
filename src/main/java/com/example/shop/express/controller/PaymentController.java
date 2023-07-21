@@ -18,9 +18,9 @@ public class PaymentController {
     @Autowired
     private IPaymentService paymentService;
     @PostMapping
-    public PaymentResponse fetchPayment(@RequestBody final PaymentRequest paymentRequest)
+    public PaymentResponse addPaymentDetails(@RequestBody final PaymentRequest paymentRequest)
     {
-        return paymentService.createPayment(paymentRequest);
+        return paymentService.addPaymentDetails(paymentRequest);
 
     }
 

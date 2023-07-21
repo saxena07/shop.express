@@ -28,7 +28,7 @@ public class UserController {
     private IUserService userService;
 
     @PostMapping
-    public UserCreateResponse create(
+    public UserCreateResponse addUser(
             @Valid @RequestBody final UserCreateRequest userCreateRequest) {
 //        userCreateRequest.setPassword("12345678");
         return userService.createUser(userCreateRequest);
@@ -60,7 +60,7 @@ public class UserController {
 
 
     @GetMapping
-    public UserDetailResponse fetchContact(@RequestParam(value ="id",required = false ) final Integer id,
+    public UserDetailResponse fetchUser(@RequestParam(value ="id",required = false ) final Integer id,
                                               @RequestParam(value ="first_name",
                                                       required = false ) final String firstName,
                                               @RequestParam(value ="last_name",required = false ) final String lastName,

@@ -36,6 +36,9 @@ public class Payment extends AbstractEntity {
     private Long paymentDate;
 
     @Column
+    private String TransactionId;
+
+    @Column
     @Enumerated(value = EnumType.ORDINAL)
     private PaymentMode mode;
 

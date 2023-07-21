@@ -28,8 +28,8 @@ public class PaymentResponse {
 
     private Long amount;
 
-    private Order order;
+    private Integer orderId;
 
-    private User user;
+    private Integer userId;
 
 }
