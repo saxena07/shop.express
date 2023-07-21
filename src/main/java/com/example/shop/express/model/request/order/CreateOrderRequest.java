@@ -23,7 +23,7 @@ import java.util.List;
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class CreateOrderRequest {
 
-    @NotBlank(message = Constant.PROVIDE_ALL_ORDER_DETAILS)
+//    @NotBlank(message = Constant.PROVIDE_ALL_ORDER_DETAILS)
     private Long orderedAt;
 
     private OrderStatus status;

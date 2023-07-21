@@ -12,10 +12,11 @@ import com.example.shop.express.mapper.OrderMapper;
 import com.example.shop.express.mapper.PaymentMapper;
 import com.example.shop.express.model.request.order.CreateOrderRequest;
 import com.example.shop.express.model.request.order.FetchOrdersRequest;
+import com.example.shop.express.model.request.order.UpdateOrderStatusRequest;
 import com.example.shop.express.model.request.orderItem.OrderItemRequest;
 import com.example.shop.express.model.response.order.CreateOrderResponse;
 import com.example.shop.express.model.response.order.FetchOrderResponse;
-import com.example.shop.express.model.response.payment.PaymentResponse;
+import com.example.shop.express.model.response.order.UpdateOrderStatusResponse;
 import com.example.shop.express.reposervice.OrderItemRepoService;
 import com.example.shop.express.reposervice.OrderRepoService;
 import com.example.shop.express.reposervice.PaymentRepoService;
@@ -28,7 +29,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 @Service
@@ -71,6 +71,8 @@ public class OrderService implements IOrderService {
         return orderMapper.mapOrdersResponse(orders);
     }
 
+
+
     @Override
     public CreateOrderResponse createOrder(final CreateOrderRequest createOrderRequest) {
 
@@ -104,6 +106,16 @@ public class OrderService implements IOrderService {
             System.out.println(sellerProduct);
         }
         return orderMapper.mapCreateOrderEntity(order);
+    }
+
+    @Override
+    public UpdateOrderStatusResponse updateOrderStatus(UpdateOrderStatusRequest updateOrderRequest) {
+        Order order = orderRepoService.updateOrderStatus(updateOrderRequest.getId(),
+                updateOrderRequest.getStatus());
+        UpdateOrderStatusResponse updateOrderStatusResponse =
+                orderMapper.mapUpdateOrderStatusEntity(order);
+        updateOrderStatusResponse.setDescription(Constant.ORDER_UPDATED_SUCCESSFULLY);
+        return updateOrderStatusResponse;
     }
 
     private Payment generatePayment(final Order order, final User user) {

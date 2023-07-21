@@ -1,6 +1,7 @@
 package com.example.shop.express.reposervice;
 
 import com.example.shop.express.entity.Order;
+import com.example.shop.express.enums.OrderStatus;
 import com.example.shop.express.repository.OrderRepository;
 import org.mapstruct.Named;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,18 +15,22 @@ public class OrderRepoService {
     @Autowired
     private OrderRepository orderRepository;
 
-    public Order saveOrder(final Order order)
-    {
+    public Order saveOrder(final Order order) {
         return orderRepository.save(order);
     }
 
     @Named("getOrder")
-    public Order fetchOrderById(final  Integer id)
-    {
+    public Order fetchOrderById(final Integer id) {
         return orderRepository.getReferenceById(id);
     }
 
     public List<Order> fetchOrders(Integer id) {
         return orderRepository.fetchOrders(id);
+    }
+
+    public Order updateOrderStatus(Integer id, OrderStatus status) {
+        Order order = fetchOrderById(id);
+        order.setStatus(status);
+        return orderRepository.save(order);
     }
 }

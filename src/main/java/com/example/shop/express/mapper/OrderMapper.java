@@ -5,6 +5,7 @@ import com.example.shop.express.entity.Order;
 import com.example.shop.express.model.request.order.CreateOrderRequest;
 import com.example.shop.express.model.response.order.CreateOrderResponse;
 import com.example.shop.express.model.response.order.FetchOrderResponse;
+import com.example.shop.express.model.response.order.UpdateOrderStatusResponse;
 import com.example.shop.express.reposervice.UserRepoService;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -26,4 +27,6 @@ public interface OrderMapper {
     Order mapCreateOrderRequest(final CreateOrderRequest createOrderRequest);
 
     CreateOrderResponse mapCreateOrderEntity(final Order order);
+
+    UpdateOrderStatusResponse mapUpdateOrderStatusEntity(final Order order);
 }

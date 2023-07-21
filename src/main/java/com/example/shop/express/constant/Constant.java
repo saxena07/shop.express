@@ -11,4 +11,5 @@ public final class Constant {
     public static final String PROVIDE_ALL_ORDER_DETAILS = "provide_all_order_details";
     public static final String PROVIDE_ALL_ORDER_ITEM_DETAILS = "provide_all_order_item_details";
     public static final String PROVIDE_USER_DETAILS = "provide_all_user_details";
+    public static final String ORDER_UPDATED_SUCCESSFULLY = "order_updated_successfully";
 }
