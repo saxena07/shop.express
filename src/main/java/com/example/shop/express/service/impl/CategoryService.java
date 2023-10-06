@@ -11,6 +11,8 @@ import com.example.shop.express.service.ICategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CategoryService implements ICategoryService {
 
@@ -31,5 +33,11 @@ public class CategoryService implements ICategoryService {
     public FetchCategoryResponse fetchCategory(FetchCategoryRequest fetchCategoryRequest) {
         Category category = categoryRepoService.fetchCategory(fetchCategoryRequest.getId());
         return categoryMapper.mapFetchedCategory(category);
+    }
+
+    @Override
+    public List<FetchCategoryResponse> fetchCategories() {
+        List<Category> categories = categoryRepoService.fetchCategories();
+        return categoryMapper.mapFetchedCategories(categories);
     }
 }

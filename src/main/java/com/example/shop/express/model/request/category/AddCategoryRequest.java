@@ -8,7 +8,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotBlank;
 
 @Data
 //@JsonInclude(JsonInclude.Include.NON_NULL)
@@ -19,7 +19,7 @@ import javax.validation.constraints.NotEmpty;
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class AddCategoryRequest {
 
-    @NotEmpty(message = Constant.PROVIDE_ALL_CATEGORY_DETAILS)
+    @NotBlank(message = Constant.PROVIDE_ALL_CATEGORY_DETAILS)
     private String name;
 
     private String description;

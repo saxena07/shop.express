@@ -1,8 +1,8 @@
 package com.example.shop.express.service;
 
 import com.example.shop.express.entity.User;
-import com.example.shop.express.model.request.UserCreateRequest;
-import com.example.shop.express.model.response.UserCreateResponse;
+import com.example.shop.express.model.request.user.UserCreateRequest;
+import com.example.shop.express.model.response.user.UserCreateResponse;
 import com.example.shop.express.reposervice.UserRepoService;
 import com.example.shop.express.repository.UserRepository;
 import com.example.shop.express.util.UserUtil;
@@ -11,10 +11,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
-
-import java.util.Collections;
 
 @RunWith(MockitoJUnitRunner.class)
 public class UserServiceTest {

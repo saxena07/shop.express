@@ -25,7 +25,14 @@ public class AddProductRequest {
 
     private String description;
 
-    @NotNull(message = Constant.PROVIDE_ALL_PRODUCT_DETAILS)
     private Integer categoryId;
 
+    @NotNull(message = Constant.PROVIDE_SELLER_ID)
+    private Integer userId;
+
+    @NotNull(message = Constant.PROVIDE_ALL_PRODUCT_DETAILS)
+    private Double price;
+
+    @NotNull(message = Constant.PROVIDE_ALL_PRODUCT_DETAILS)
+    private Integer quantity;
 }

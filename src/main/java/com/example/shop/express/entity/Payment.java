@@ -36,6 +36,9 @@ public class Payment extends AbstractEntity {
     private Long paymentDate;
 
     @Column
+    private String TransactionId;
+
+    @Column
     @Enumerated(value = EnumType.ORDINAL)
     private PaymentMode mode;
 
@@ -44,7 +47,7 @@ public class Payment extends AbstractEntity {
     private PaymentStatus status;
 
     @Column
-    private Long amount;
+    private Double amount;
 
     @ToString.Exclude
     @JsonBackReference
